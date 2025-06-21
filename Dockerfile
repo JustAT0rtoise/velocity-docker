@@ -23,6 +23,8 @@ VOLUME /data
 
 EXPOSE 25577
 
-COPY --chown=velocity velocity/velocity-*.jar /opt/velocity/velocity.jar
+# Copy the velocity-<VERSION_NUMBER>.jar file from the nearby /velocity directory THAT SHOULD EXIST. 
+COPY --chown=$APPLICATION_USER velocity/velocity-*.jar /opt/velocity/velocity.jar
 
+# Start the velocity file with the flags.
 ENTRYPOINT java -Xms$JAVA_MEMORY -Xmx$JAVA_MEMORY $JAVA_FLAGS -jar /opt/velocity/velocity.jar
