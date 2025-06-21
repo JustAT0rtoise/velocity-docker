@@ -9,9 +9,7 @@ ENV JAVA_FLAGS="-XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOp
 
 WORKDIR /data
 
-RUN apk add --upgrade --no-cache openssl && \
-
-USER $APPLICATION_USER
+RUN apk add --upgrade --no-cache openssl
 
 VOLUME /data
 
